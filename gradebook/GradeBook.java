@@ -6,49 +6,48 @@ public class GradeBook {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
 
+        // TODO: initialize students from contents of grades.txt file
+
         System.out.println("Welcome to the CM111 Grade Book App!");
 
         while(true) {
             System.out.println("\nPlease make a selection:\n");
-            System.out.println("1) Load a gradebook from a file");
-            System.out.println("2) List Class Roster");
-            System.out.println("3) Enter Project Grade");
-            System.out.println("4) Enter Exam Grade");
-            System.out.println("5) Enter Lab Grade");
-            System.out.println("6) Enter Participation Score");
-            System.out.println("7) Print Overall Grades");
-            System.out.println("8) Save gradebook to a file");
-            System.out.println("9) Exit");
+            System.out.println("1) List Class Grades");
+            System.out.println("2) Update Grade");
+            System.out.println("3) Exit");
             System.out.print("\nPlease choose an option: ");
             String choice = input.nextLine();
             System.out.println();
             switch(choice) {
-                case "1":
-                    System.out.println("Option not implemented.");
-                    continue;
+                case "1": 
+                    for(Student student: students) {
+                        System.out.printf("%s, %s: %f%n", student.getFirstName(), 
+                                                        student.getLastName(), 
+                                                        student.getGrade());
+                    }
+                    break;
                 case "2":
-                    continue;
+                    System.out.println("Enter First Name: ");
+                    String fname = input.nextLine();
+                    System.out.println("Enter Last Name: ");
+                    String lname = input.nextLine();
+                    
+                    for(Student student: students) {
+                        if(student.getFirstName().equals(fname) &&
+                           student.getLastName().equals(lname)) {
+                           System.out.println("Enter Grade: ");
+                           student.setGrade(Double.parseDouble(input.nextLine()));
+                           System.out.println("Grade updated");
+                           break;
+                        }
+                    }
+                    System.out.println("Student not found");
+                    break;
                 case "3":
-                    System.out.println("Option not implemented.");
-                    continue;
-                case "4":
-                    System.out.println("Option not implemented.");
-                    continue;
-                case "5":
-                    System.out.println("Option not implemented.");
-                    continue;
-                case "6":
-                    System.out.println("Option not implemented.");
-                    continue;
-                case "7":
-                    System.out.println("Option not implemented.");
-                    continue;
-                case "8":
-                    System.out.println("Option not implemented.");
-                    continue;
-                case "9":
+                    // Challenge: write code to save the grades to grades.txt
                     System.out.println("Goodbye!");
                     return;
+
             }
         }
     }
