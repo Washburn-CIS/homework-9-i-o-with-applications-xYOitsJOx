@@ -21,8 +21,8 @@ public class GradeBook {
             switch(choice) {
                 case "1": 
                     for(Student student: students) {
-                        System.out.printf("%s, %s: %f%n", student.getFirstName(), 
-                                                        student.getLastName(), 
+                        System.out.printf("%s, %s: %f%n", student.getLastName(), 
+                                                        student.getFirstName(), 
                                                         student.getGrade());
                     }
                     break;
