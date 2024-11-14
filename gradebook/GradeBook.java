@@ -38,7 +38,7 @@ public class GradeBook {
                            System.out.println("Enter Grade: ");
                            student.setGrade(Double.parseDouble(input.nextLine()));
                            System.out.println("Grade updated");
-                           break;
+                           continue;
                         }
                     }
                     System.out.println("Student not found");
